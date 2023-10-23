@@ -20,12 +20,25 @@ This project demonstrates how to create a glass effect button with a blue gradie
 The `GlassButton` component provides a customizable glass button with a label and an action closure.
 
 ```swift
+import SwiftUI
+
 struct GlassButton: View {
     var label: String
     var action: () -> Void
 
     var body: some View {
-        // Button styling code
+        Button(action: action) {
+            Text(label)
+                .foregroundColor(Color.white)
+                .padding()
+                .background(BlurView(style: .systemThinMaterial))
+                .cornerRadius(10)
+                .opacity(0.8)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.white, lineWidth: 1)
+                )
+        }
     }
 }
 ```
