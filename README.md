@@ -37,11 +37,11 @@ struct BlurView: UIViewRepresentable {
     let style: UIBlurEffect.Style
 
     func makeUIView(context: Context) -> UIVisualEffectView {
-        // Code to create the blur effect view
+        let view = UIVisualEffectView(effect: UIBlurEffect(style: style))
+        return view
     }
 
     func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
-        // Code to update the view
     }
 }
 ```
