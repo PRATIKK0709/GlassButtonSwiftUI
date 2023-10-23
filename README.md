@@ -64,7 +64,19 @@ The `GlassButtonDemo` view sets up a gradient background and places the `GlassBu
 ```swift
 struct GlassButtonDemo: View {
     var body: some View {
-        // Code to set up the gradient background and button
+        LinearGradient(
+            gradient: Gradient(colors: [Color.blue, Color.pink]),
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
+        .edgesIgnoringSafeArea(.all)
+        .overlay(
+            VStack {
+                GlassButton(label: "Glass Button") {
+                    // Action to perform when the button is tapped
+                }
+            }
+        )
     }
 }
 ```
